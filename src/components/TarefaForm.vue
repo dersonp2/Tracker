@@ -1,5 +1,5 @@
 <template>
-<div class="box">
+<Box>
   <div class="columns">
     <div class="column is-7">
        {{ tarefa?.descricao || 'Tarefa Sem Descrição'}}
@@ -8,12 +8,13 @@
       <CronometroForm :tempo-segundos="tarefa ? tarefa.duracaoSegundo : 0"/>
     </div>
   </div>
-</div>
+</Box>
 </template>
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import CronometroForm from './CronometroForm.vue';
+import Box from './Box.vue';
 import type { ITarefa } from '@/interfaces/ITarefa';
 
 defineProps({

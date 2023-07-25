@@ -1,5 +1,5 @@
 <template>
-  <section><strong>{{ tempoDecorrido }}</strong></section>
+  <section class="cronometro">{{ tempoDecorrido }}</section>
 </template>
 
 <script lang="ts" setup>
@@ -15,3 +15,10 @@ const tempoDecorrido = computed(()=>{
   return new Date(props.tempoSegundos * 1000).toISOString().substr(11,8);
 })
 </script>
+
+<style>
+.cronometro{
+  /* background-color: var(--bg-primario); */
+  color: var(--texto-primario);
+}
+</style>

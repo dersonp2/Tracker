@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div class="box form">
         <div class="columns">
             <div
                 class="column is-8"
@@ -44,4 +44,10 @@ function finalizarTarefa(tempoDecorrido: Number): void{
 }
 </script>
 
-<style></style>
+<style>
+
+.form{
+  background-color: var(--bg-primario);
+  color: var(--texto-primario);
+}
+</style>
