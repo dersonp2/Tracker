@@ -1,7 +1,7 @@
 <template>
 <header>
   <h1>
-    Tracker
+    Tracker Do Derson
   </h1>
   <button class="button text-align-center" @click="alterarTema">
     {{ textoBotao }} modo escuro
