@@ -6,6 +6,21 @@
   <button class="button text-align-center" @click="alterarTema">
     {{ textoBotao }} modo escuro
   </button>
+
+  <nav class="panel mt-5">
+   <ui>
+    <li class="link">
+      <router-link to="/">
+        Tarefas
+      </router-link>
+    </li>
+    <li class="link">
+      <router-link to="/projetos">
+        Projetos
+      </router-link>
+    </li>
+   </ui>
+  </nav>
 </header>
 </template>
 
@@ -47,4 +62,19 @@ h1 {
     height: auto;
   }
 } 
+
+.panel li {
+    margin: 8px 0;
+}
+.link, a {
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
+}
+.link:hover {
+    color: #FAF0CA !important;
+}
+.link.router-link-active {
+    color: #FAF0CA;
+}
 </style>
