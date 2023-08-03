@@ -7,7 +7,6 @@ import { computed, ref } from 'vue';
 
 // const tarefas: ITarefa[] = [];
 const tarefas = ref<ITarefa[]>([]);
-let modoEscuro = ref(false);
 
 function salvarTarefa(tarefa: ITarefa) {
     console.log(tarefa);
@@ -18,6 +17,7 @@ function salvarTarefa(tarefa: ITarefa) {
 const listaEstaVazia = computed(() => {
     return tarefas.value.length === 0;
 });
+
 </script>
 
 <template>

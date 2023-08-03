@@ -17,7 +17,7 @@ function alterarTema(alterar: { value: boolean; }){
 
     </div>
 
-    <div class="column is-three-quarters conteudo">
+    <div class="column is-three-quarters conteudo">      
        <RouterView></RouterView>
     </div>
   </main>

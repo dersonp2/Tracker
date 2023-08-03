@@ -25,9 +25,10 @@
                 </tr>
             </thead>
             <tbody>
-              <tr v-for="projeto in projetos" :key="projeto.id">
+              <tr v-for="projeto in listaProjetos" :key="projeto.id">
                     <td>{{ projeto.id }}</td>
                     <td>{{ projeto.nome }}</td>
+                    <td><button @click="store.removerProjeto(projeto.id)">Remover</button></td>
                 </tr>
             </tbody>
         </table>
@@ -37,18 +38,20 @@
 <script lang="ts" setup>
 import type IProjeto from '@/interfaces/IProjeto';
 import { ref } from 'vue';
+import {projetoStore} from '@/store/projeto'
+import {storeToRefs} from 'pinia'
+const store = projetoStore()
+let nomeDoProjeto = ref('');
 
-let nomeDoProjeto = '';
-
-let projetos = ref<IProjeto[]>([]);
+let {listaProjetos} = storeToRefs(store);
 
 function salvar() {
+    console.log(nomeDoProjeto)
     const projeto: IProjeto = {
-        nome: nomeDoProjeto,
+        nome: nomeDoProjeto.value,
         id: new Date().toISOString()
     };
-
-    projetos.value.push(projeto);
+    store.adicionarProjeto(projeto)
 }
 </script>
 

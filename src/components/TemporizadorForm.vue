@@ -1,28 +1,18 @@
 <template>
     <div class="is-flex is-align-items-center is-justify-content-space-between">
         <CronometroForm :tempo-segundos="tempoSegundo" />
-
-        <BotaoIcone
-            :disabilitado="cronometroRodando"
-            nome="Play"
-            icone="fa-solid fa-play"
-            @btn-clicked="iniciar"
-        />
-        <BotaoIcone
-            :disabilitado="!cronometroRodando"
-            nome="Stop"
-            icone="fas fa-stop"
-            @btn-clicked="finalizar"
-        />
+       
+        <BotaoIcone    icone="fas fa-play"  @btn-clicked="iniciar"></BotaoIcone>
+        
+        <BotaoIcone icone="fas fa-stop" nome="Stop" @btn-clicked="finalizar"></BotaoIcone>
     </div>
+    
 </template>
 
 <script lang="ts" setup>
-import BotaoIcone from './BotaoIcone.vue';
 import CronometroForm from './CronometroForm.vue';
-
 import { ref } from 'vue';
-
+import BotaoIcone from '@/components/BotaoIcone.vue';
 const tempoSegundo = ref(0);
 let cronometro = 0;
 let cronometroRodando = ref(false);

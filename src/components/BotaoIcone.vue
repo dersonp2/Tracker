@@ -1,22 +1,26 @@
 <template>
-    <button class="button" :disabled="disabilitado" @click="emitClick">
-        <span class="icon"  v-if="icone !== ''">
-            <i :class="icone"></i>
-        </span>
-        <span>{{ nome }}</span>
-    </button>
+   <button class="button" @click="clicar" >
+            <span class="icon" v-if="icone !== ''">
+                 <i :class="icone"></i> 
+            </span>
+            <span>
+            {{ nome || 'Sem nome'}}
+            </span>
+        </button>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
+// o que é que vou receber?
 defineProps({
-    icone: { type: String, default: '' },
-    nome: { type: String, default: ''},
-    disabilitado: { type: Boolean, default: false }
-});
+  icone: { type: String, default:''},
+  nome: {type: String, default: ''}
+})
 
-const emit = defineEmits(['btnClicked']);
+const emit = defineEmits(['btnClicked', 'btnHover']);
 
-function emitClick() {
-    emit('btnClicked');
+function clicar(){
+  console.log("Clicou")
+  emit('btnClicked')
 }
+
 </script>
