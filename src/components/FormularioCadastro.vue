@@ -17,7 +17,7 @@
             <div class="column is-3">
                 <div class="select">
                     <select v-model="idProjeto">
-                        <option value="">Selecione o projeto {{ totalProjetos }}</option>
+                        <option value="">Selecione o projeto </option>
                         <option
                             :value="projeto.id"
                             v-for="projeto in listaProjetos"

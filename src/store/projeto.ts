@@ -4,11 +4,7 @@ import { computed, ref } from 'vue';
 
 export const projetoStore = defineStore('projeto', () => {
     // States
-    const listaProjetos = ref([
-        { id: new Date().toISOString(), nome: 'Typescript' },
-        { id: new Date().toISOString(), nome: 'Vue' },
-        { id: new Date().toISOString(), nome: 'Pinia' }
-    ]);
+    const listaProjetos = ref<IProjeto[]>([]);
 
     // Getters
     const totalProjetos = computed(() => listaProjetos.value.length);
@@ -22,10 +18,24 @@ export const projetoStore = defineStore('projeto', () => {
       listaProjetos.value = listaProjetos.value.filter((x) => x.id !== id);
     }
 
+    function buscarProjetoPorId(id: string) {
+      return listaProjetos.value.find((projeto) => projeto.id === id) || null;
+    }
+
+    const alterarNome = (projeto: IProjeto) => {
+      const projetoAlt = buscarProjetoPorId(projeto.id);
+      if (projetoAlt) {
+        projetoAlt.nome  = projeto.nome;
+      } 
+    }
+
+
     return {
         listaProjetos,
         totalProjetos,
         adicionarProjeto,
-        removerProjeto
+        removerProjeto,
+        buscarProjetoPorId,
+        alterarNome
     };
 });
